@@ -103,17 +103,17 @@
             <label for="harga">Harga:</label>
             <input type="text" id="harga" name="harga" readonly><br>
 
-            
-            
-             <option value="QRIS"></option>
+            <label for="metode_pembayaran">Pilih Metode Pembayaran:</label>
+            <select id="metode_pembayaran" name="metode_pembayaran" required>
+                <option value="">Pilih Metode Pembayaran</option>
+                <option value="Dana">Dana</option>
+                <option value="GoPay">GoPay</option>
+                <option value="PulsaAxis">Pulsa Axis</option>
+                <option value="QRIS">QRIS</option>
             </select><br>
-            
             
             <div id="paymentDetails" class="payment-details"></div>
             <button type="submit" class="btn">Bayar Sekarang</button>
-        </form>
-    </div>
-          <a href="qris.html" class="btn">Bayar Sekarang</a>
         </form>
     </div>
 
