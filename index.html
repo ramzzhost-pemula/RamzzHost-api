@@ -1,398 +1,156 @@
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>🌧️ TOKO MUDZ NESIA 🌧️</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order Jasteb by Whitz</title>
   <style>
     body {
-      font-family: "Poppins", sans-serif;
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 20px;
+      background: linear-gradient(to bottom right, #009688, #1a237e);
+      color: white;
     }
-
-    #checkoutModal {
-      transition: opacity 0.3s ease;
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    h2, h3 {
+      text-align: center;
+    }
+    .card {
+      background: rgba(0,0,0,0.2);
+      padding: 15px;
+      margin: 10px 0;
+      border: 1px solid #000;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .card:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    .selected {
+      background: rgba(0,255,0,0.3) !important;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    input { border: none; }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    #qrModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 99;
+    }
+    .modal-content {
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .modal-content img {
+      width: 200px;
+      margin: 10px 0;
     }
   </style>
 </head>
+<body>
+  <div class="container">
+    <h2>WEB ORDER JASTEB BY WHITZ</h2>
+    <h3>Pilih Katagori Orderan: <strong>Jasteb Premium</strong></h3>
 
-<body class="bg-white text-gray-900">
+    <label for="email">Masukan Email Anda:</label>
+    <input type="email" id="email" required placeholder="Contoh: user@mail.com">
 
-  <!-- HEADER -->
-  <header class="bg-gradient-to-r from-blue-500 via-purple-500 to-white text-white px-6 py-12 text-center">
-    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">ALL PRODUK MUDZ NESIA 🚀</h1>
-    <p class="mt-3 max-w-xl mx-auto text-base font-normal">Solusi Kebutuhan Hosting Dan Cloud Terbaik Masa Kini</p>
-    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4 max-w-xs mx-auto sm:max-w-md">
-      <button class="bg-white text-blue-600 font-semibold rounded-full px-6 py-3 flex items-center justify-center gap-2 shadow-md hover:bg-gray-100 transition">
-        <i class="fas fa-lock"></i> Lihat Produk
-      </button>
-      <button onclick="hubungiAdmin()" class="border border-white border-opacity-50 rounded-full px-6 py-3 flex items-center justify-center gap-2 font-semibold hover:bg-white hover:bg-opacity-20 transition">
-        <i class="fas fa-headphones-alt"></i> Hubungi Kami
-      </button>
-    </div>
-  </header>
+    <h3>Silahkan Pilih Jumlah Pembelian:</h3>
 
-  <!-- NAV KATEGORI -->
-  <nav class="bg-white py-6 px-4 flex flex-wrap justify-center gap-4 shadow-sm">
-    <button onclick="filterKategori('SEMUA', this)" class="btn-kategori bg-gradient-to-r from-blue-500 via-purple-500 to-white text-white shadow-lg rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
-                <i class="fas fa-list-ul"></i> SEMUA
-              </button><button onclick="filterKategori('WHM', this)" class="btn-kategori border border-gray-200 text-gray-700 hover:bg-gray-100 rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
-                <i class="fas fa-server"></i> WHM
-              </button><button onclick="filterKategori('SMTP', this)" class="btn-kategori border border-gray-200 text-gray-700 hover:bg-gray-100 rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
-                <i class="fas fa-globe"></i> DOMAIN
-              </button><button onclick="filterKategori('JASTEB', this)" class="btn-kategori border border-gray-200 text-gray-700 hover:bg-gray-100 rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
-                <i class="fas fa-user"></i> JASTEB
-              </button><button onclick="filterKategori('ALL SC', this)" class="btn-kategori border border-gray-200 text-gray-700 hover:bg-gray-100 rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
-                <i class="fas fa-code"></i> ALL SC
-              </button><button onclick="filterKategori('SC PHISING', this)" class="btn-kategori border border-gray-200 text-gray-700 hover:bg-gray-100 rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
-                <i class="fas fa-exclamation-triangle text-black"></i> 
-                <span>SC PHISING</span>
-              </button>  </nav>
+    <div class="card" onclick="selectItem(10000, '180+ Results')">Rp 10.000- 180+ Results</div>
+    <div class="card" onclick="selectItem(20000, '280+ Results')">Rp 20.000 - 280+ Results</div>
+    <div class="card" onclick="selectItem(30000, '380+ Results')">Rp 30.000 - 380+ Results</div>
+    <div class="card" onclick="selectItem(35000, '450+ Results')">Rp 35.000 - 450+ Results</div>
+    <div class="card" onclick="selectItem(40000, '550+ Results')">Rp 40.000- 550+ Results</div>
+    <div class="card" onclick="selectItem(50000, '700+ Results')">Rp 50.000 - 700+ Results</div>
+    <div class="card" onclick="selectItem(80000, 'FULL 1 DAY Results')">Rp 80.000- FULL 1 DAY Results</div>
 
-  <!-- PRODUK -->
-  <main class="bg-gray-50 py-12 px-6">
-    <h2 class="text-center text-2xl font-extrabold text-blue-600 mb-3">Produk Kami</h2>
+    <h3>Total Harga:</h3>
+    <input type="text" id="totalHarga" readonly value="Rp 0">
 
-    <!-- Pencarian -->
-    <form class="max-w-xl mx-auto mb-10">
-      <label for="search" class="sr-only">Cari produk</label>
-      <div class="relative">
-        <input id="search" type="search" placeholder="Cari produk..." class="w-full rounded-full border border-gray-200 py-3 pl-12 pr-4 text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" />
-        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-      </div>
-    </form>
+    <button onclick="submitOrder()">Order Jasteb</button>
+  </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" id="produk-list">
-      <div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
-  <div class="absolute top-0 right-0 bg-pink-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULER</div>
-  <h3 class="text-lg font-bold text-gray-800 mb-1">WHM MINI</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">20.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Akun Whm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
-  </ul>
-  <button onclick="redirectToPayment('WHM MINI', '20000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+<!-- Modal QR -->
+<div id="qrModal">
+  <div class="modal-content">
+    <h3>Silakan Scan QRIS untuk Pembayaran</h3>
+    <img src="https://ik.imagekit.io/rmlbayysp/1749646128917-IMG-20250611-WA0102_lAhhfytPv.jpg" alt="QRIS Anda">
+    <p>Total Pembayaran: <span id="hargaQR">Rp 0</span></p>
+    <p>Batas waktu pembayaran: <span id="timer">30:00</span> menit</p>
+    <button onclick="kirimOrder()">Kirim Orderan</button>
+  </div>
 </div>
+  <script>
+    let selectedPrice = 0;
+    let selectedText = '';
+    const hargaInput = document.getElementById("totalHarga");
+    const cards = document.querySelectorAll(".card");
 
-<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">WHM MEDIUM</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">30.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Akun Whm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
-  </ul>
-  <button onclick="redirectToPayment('WHM MEDIUM', '30000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
+    function selectItem(price, text) {
+      selectedPrice = price;
+      selectedText = text;
+      hargaInput.value = "Rp " + price.toLocaleString();
 
-<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">WHM EXTRA</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">40.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Akun Whm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
-  </ul>
-  <button onclick="redirectToPayment('WHM EXTRA', '40000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
+      cards.forEach(card => card.classList.remove("selected"));
+      event.currentTarget.classList.add("selected");
+    }
 
-<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">WHM SUPER</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">50.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Akun Whm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
-  </ul>
-  <button onclick="redirectToPayment('WHM SUPER', '50000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
+    function submitOrder() {
+      const email = document.getElementById("email").value;
+      if (!email || !selectedPrice) {
+        alert("Silakan isi email dan pilih jumlah pembelian.");
+        return;
+      }
 
-<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
-  <div class="absolute top-0 right-0 bg-pink-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULER</div>
-  <h3 class="text-lg font-bold text-gray-800 mb-1">MWHM MINI</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">30.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Akun Mwhm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
-  </ul>
-  <button onclick="redirectToPayment('MWHM MINI', '30000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
+      document.getElementById("hargaQR").innerText = "Rp " + selectedPrice.toLocaleString();
+      document.getElementById("qrModal").style.display = "flex";
+      startCountdown(30 * 60); // 30 menit
 
-<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">MWHM MEDIUM</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">35.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Akun Mwhm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
-  </ul>
-  <button onclick="redirectToPayment('MWHM MEDIUM', '35000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
+      // Kirim data ke Telegram bot
+      const token = "8184563760:AAGFg35h360wP59euTdSbxRqA6dwXoYzo6c";
+      const chatId = "6935031099";
+      const message = `🔔 Order Masuk!\n\nEmail: ${email}\nProduk: ${selectedText}\nHarga: Rp ${selectedPrice.toLocaleString()}`;
 
-<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">MWHM EXTRA</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">45.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Akun Mwhm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
-  </ul>
-  <button onclick="redirectToPayment('MWHM EXTRA', '45000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
+      fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ chat_id: chatId, text: message })
+      });
+    }
 
-<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">MWHM SUPER</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">55.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Akun Mwhm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
-  </ul>
-  <button onclick="redirectToPayment('MWHM SUPER', '55000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">MURHOST</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">50.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Anti Pt²</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Dapat All Sc Dari Gua</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain²</li>
-  </ul>
-  <button onclick="redirectToPayment('MURHOST', '50000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div><div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="SMTP">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">SMTP 1 MINGGU</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">70.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Garansi Sampai Habis Selama Pemakaian Insyaallah Hijau.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Di Jamin Hijau</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Tinggi</li>
-  </ul>
-  <button onclick="redirectToPayment('SMTP 1 MINGGU', '70000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="SMTP">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">SMTP 2 MINGGU</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">120.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Garansi Sampai Habis Selama Pemakaian Insyaallah Hijau.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Di Jamin Hijau</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Tinggi</li>
-  </ul>
-  <button onclick="redirectToPayment('SMTP 2 MINGGU', '120000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="SMTP">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">SMTP 3 MINGGU</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">150.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Garansi Sampai Habis Selama Pemakaian Insyaallah Hijau.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Di Jamin Hijau</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Tinggi</li>
-  </ul>
-  <button onclick="redirectToPayment('SMTP 3 MINGGU', '150000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="SMTP">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">SMTP 1 BULAN</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">170.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Garansi Sampai Habis Selama Pemakaian Insyaallah Hijau.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Di Jamin Hijau</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Tinggi</li>
-  </ul>
-  <button onclick="redirectToPayment('SMTP 1 BULAN', '170000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">TANGAN KANAN</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">200.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Whm</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Founder Marga Dan Lain Lain</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain Lain Lah</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Ada Pt² Setiap Minggu</li>
-  </ul>
-  <button onclick="redirectToPayment('TANGAN KANAN', '200000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">JASTEB</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">10.000 - 100.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Insyaallah Dapat Akun Gg.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
-  </ul>
-  <button onclick="redirectToPayment('JASTEB', '10000 - 100000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">UNCHECK</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">10.000 - 100.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Insyaallah Dapat Akun Gg.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-  </ul>
-  <button onclick="redirectToPayment('UNCHECK', '10000 - 100000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">TEAM RESS</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">15.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Jasteb</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Pt Jasteb</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Ada PtPt Setiap Minggu</li>
-  </ul>
-  <button onclick="redirectToPayment('TEAM RESS', '15000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">ADMIN TEAM RESS</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">30.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Jasteb</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain²</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Tidak Ada PtPt</li>
-  </ul>
-  <button onclick="redirectToPayment('ADMIN TEAM RESS', '30000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">MARGA JASTEB</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">80.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Jasteb</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain²</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Ada Pt² Setiap Minggu</li>
-  </ul>
-  <button onclick="redirectToPayment('MARGA JASTEB', '80000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">FOUNDER MARGA JASTEB</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">150.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Jasteb</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain²</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Ada Pt² Setiap Minggu</li>
-  </ul>
-  <button onclick="redirectToPayment('FOUNDER MARGA JASTEB', '150000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">JASA PEMBUATAN RESS</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">80.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Jasteb</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain²</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Tidak Ada PtPt</li>
-  </ul>
-  <button onclick="redirectToPayment('JASA PEMBUATAN RESS', '80000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="ALL SC">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">SC CREATE PANEL JASTEB 4 TAMPILAN</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">35.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Bisa Create Panel.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Panel Atur Menit</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Panel Atur Ress </li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Panel Biasa</li>
-  </ul>
-  <button onclick="redirectToPayment('SC PANEL JASTEB 4 TAMPILAN', '35000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="ALL SC">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">SC PUSAT</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">15.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Ada Login Nya Jadi Gak Kebobol.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Atur Background</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Atur Background Pusat</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Dan Lain²</li>
-  </ul>
-  <button onclick="redirectToPayment('SC PUSAT', '15000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="ALL SC">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">SC ALL PAYMENT</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">20.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Script Dengan Dukungan Semua Metode Pembayaran Populer Dan Integrasi Mudah.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Multi Payment</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Integrasi Mudah</li>
-  </ul>
-  <button onclick="redirectToPayment('SC ALL PAYMENT', '20000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-</div>
-
-<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="ALL SC">
-  <h3 class="text-lg font-bold text-gray-800 mb-1">SC SUBDOMAIN</h3>
-  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">25.000</span></p>
-  <p class="mb-6 text-sm text-gray-500">Script Untuk Manajemen Subdomain Pada Sistem Dengan Kontrol Penuh.</p>
-  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Aktifkan Proxy</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Atur Background</li>
-    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Dan Lain²</li>
-  </ul>
-  <button onclick="redirectToPayment('SC SUBDOAMIN', '25000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
-                             </div>
-                        </div>
-                   </div>
-              </div>
-       </section>
-<section id="contact">
-<footer>
-    <p>&copy; 2024 Store Jualan Yanzxz Official</p>
-    <div class="social-icons">
-        <!-- Icon Telegram -->
-        <a href="https://t.me/cssdmin_ynz" target="_blank" class="social-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="50" height="50">
-        </a>
-        <!-- Icon YouTube -->
-        <a href="https://youtube.com/@yanzidhost" target="_blank" class="social-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" width="50" height="50">
-        </a>
-        <!-- Icon WhatsApp -->
-        <a href="https://wa.me/6283155792072" target="_blank" class="social-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
-        </a>
-    </div>
-</footer>
-        </section>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    <script>
-function redirectToPayment(namaProduk, harga) {
-            // Redirect ke halaman payment.html dengan parameter produk dan harga
-            window.location.href = `payment.html?produk=${encodeURIComponent(namaProduk)}&harga=${encodeURIComponent(harga)}`;
-        }
-        </script>
+    function startCountdown(seconds) {
+      const timer = document.getElementById("timer");
+      const interval = setInterval(() => {
+        const min = Math.floor(seconds / 60);
+        const sec = seconds % 60;
+        timer.textContent = `${min}:${sec.toString().padStart(2, '0')}`;
+        if (seconds-- <= 0) clearInterval(interval);
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
