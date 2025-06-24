@@ -1,197 +1,398 @@
-<!--𝗦𝘂𝗺𝗯𝗲𝗿 𝗖𝗼𝗱𝗲-->
-<!-- https://whatsapp.com/channel/0029Vb6DPnBIXnliEawZjb41 -->
 
-𝗪𝗲𝗯 𝗪𝗲𝗹𝗰𝗼𝗺𝗲×𝗣𝗮𝘆𝗺𝗲𝗻𝘁×𝗦𝘁𝗼𝗿𝗲+𝗮𝘂𝗱𝗶𝗼+𝗯𝗮𝗰𝗸𝗴𝗿𝗼𝘂𝗻𝗱 𝗳𝗼𝘁𝗼
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Ramzz Digital</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🌧️ TOKO MUDZ NESIA 🌧️</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; color: #fff;}
     body {
-       <!--Isi Url dengan foto
-       text ini bisa di hapus-->
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
+      font-family: "Poppins", sans-serif;
     }
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      z-index: -1;
-      backdrop-filter: blur(6px);
-    }
-    nav {
-      background: rgba(0,0,0,0.8);
-      padding: 15px;
-      text-align: center;
-      position: sticky; top: 0;
-      z-index: 100;
-    }
-    nav button {
-      background: #00ffd0;
-      border: none;
-      margin: 5px;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    nav button:hover {background: #ff0080; color: #fff;}
-    section {
-      display: none;
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-      margin-top: 40px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
-      animation: fadeIn 1s ease;
-      text-align: center;
-    }
-    section.active {display: block;}
-    h1, h2 {color: #00ffd0; margin-bottom: 20px;}
-    .button {
-      background: #00ffd0;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      margin-top: 10px;
-      font-weight: bold;
-      color: #000;
-      cursor: pointer;
-    }
-    .button:hover {background: #ff0080; color: #fff;}
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    .product-box {
-      background: rgba(0,0,0,0.8);
-      padding: 20px;
-      border-radius: 10px;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      background: rgba(0,0,0,0.5);
-    }
-    img.logo {
-      max-width: 120px;
-      margin-bottom: 15px;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #00ffd0;
-    }
-    #qris {
-      margin-top: 20px;
-      display: none;
-      transition: all 0.4s ease;
-    }
-    #qris img {
-      max-width: 250px;
-      border: 4px solid #00ffd0;
-      border-radius: 15px;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+
+    #checkoutModal {
+      transition: opacity 0.3s ease;
     }
   </style>
 </head>
-<body>
-   <!-- isi audio.mp3 dengan link audionya-->
-  <audio autoplay loop>
-    <source src="audio.mp3" type="audio/mpeg">
-  </audio>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <button onclick="showPage('welcome')">🏠 Welcome</button>
-    <button onclick="showPage('profile')">👤 Profil</button>
-    <button onclick="showPage('payment')">💳 Payment</button>
-    <button onclick="showPage('products')">🛒 Produk</button>
-  </nav>
+<body class="bg-white text-gray-900">
 
-  <!-- HALAMAN: WELCOME -->
-  <section id="welcome" class="active">
-    <h1>Selamat Datang di G4nggaaa Digital</h1>
-    <p>Pusat layanan bot, tools, website & API!</p>
-    <button class="button" onclick="showPage('profile')">Lihat Profil</button>
-    <button class="button" onclick="showPage('payment')">Lihat Pembayaran</button>
-    <button class="button" onclick="showPage('products')">Lihat Produk</button>
-  </section>
-
-  <!-- HALAMAN: PROFIL -->
-  <section id="profile">
-    <img src="https://img1.pixhost.to/images/6586/612528747_imgtmp.jpg" alt="Logo" class="logo">
-    <h2>Profil Bisnis</h2>
-    <p>G4nggaaa Digital adalah penyedia layanan kreatif seperti bot WhatsApp, bot Telegram RPG, tools Termux prank, dan pembuatan website modern. Berpengalaman sejak 2022 dan dipercaya komunitas digital Indonesia.</p>
-  </section>
-
-  <!-- HALAMAN: PAYMENT -->
-  <section id="payment">
-    <h2>Metode Pembayaran</h2>
-    <p>Klik salah satu metode berikut:</p>
-    <a href="https://wa.me/628xxxxxxx?text=Halo+saya+ingin+membayar+via+DANA"><button class="button">Bayar via DANA</button></a>
-    <a href="https://wa.me/628xxxxxxx?text=Halo+saya+ingin+membayar+via+Gopay"><button class="button">Bayar via Gopay</button></a>
-    <a href="https://wa.me/628xxxxxxx?text=Halo+saya+ingin+membayar+via+BCA"><button class="button">Bayar via BCA</button></a>
-    <br><br>
-    <button class="button" onclick="toggleQRIS()">Tampilkan QRIS</button>
-    <div id="qris">
-      <p>Scan QRIS berikut untuk pembayaran instan:</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/QRIS_logo.svg/512px-QRIS_logo.svg.png" alt="QRIS">
+  <!-- HEADER -->
+  <header class="bg-gradient-to-r from-blue-500 via-purple-500 to-white text-white px-6 py-12 text-center">
+    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">ALL PRODUK MUDZ NESIA 🚀</h1>
+    <p class="mt-3 max-w-xl mx-auto text-base font-normal">Solusi Kebutuhan Hosting Dan Cloud Terbaik Masa Kini</p>
+    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4 max-w-xs mx-auto sm:max-w-md">
+      <button class="bg-white text-blue-600 font-semibold rounded-full px-6 py-3 flex items-center justify-center gap-2 shadow-md hover:bg-gray-100 transition">
+        <i class="fas fa-lock"></i> Lihat Produk
+      </button>
+      <button onclick="hubungiAdmin()" class="border border-white border-opacity-50 rounded-full px-6 py-3 flex items-center justify-center gap-2 font-semibold hover:bg-white hover:bg-opacity-20 transition">
+        <i class="fas fa-headphones-alt"></i> Hubungi Kami
+      </button>
     </div>
-  </section>
+  </header>
 
-  <!-- HALAMAN: PRODUK -->
-  <section id="products">
-    <h2>Daftar Produk</h2>
-    <div class="products">
-      <div class="product-box">
-        <h3>🤖 Bot WhatsApp</h3>
-        <p>Bot Auto-reply, AI Chat, JSON Menu Button.</p>
-        <a href="https://wa.me/628xxxxxxx?text=Halo+saya+ingin+membeli+Bot+WhatsApp"><button class="button">Beli via WhatsApp</button></a>
+  <!-- NAV KATEGORI -->
+  <nav class="bg-white py-6 px-4 flex flex-wrap justify-center gap-4 shadow-sm">
+    <button onclick="filterKategori('SEMUA', this)" class="btn-kategori bg-gradient-to-r from-blue-500 via-purple-500 to-white text-white shadow-lg rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
+                <i class="fas fa-list-ul"></i> SEMUA
+              </button><button onclick="filterKategori('WHM', this)" class="btn-kategori border border-gray-200 text-gray-700 hover:bg-gray-100 rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
+                <i class="fas fa-server"></i> WHM
+              </button><button onclick="filterKategori('SMTP', this)" class="btn-kategori border border-gray-200 text-gray-700 hover:bg-gray-100 rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
+                <i class="fas fa-globe"></i> DOMAIN
+              </button><button onclick="filterKategori('JASTEB', this)" class="btn-kategori border border-gray-200 text-gray-700 hover:bg-gray-100 rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
+                <i class="fas fa-user"></i> JASTEB
+              </button><button onclick="filterKategori('ALL SC', this)" class="btn-kategori border border-gray-200 text-gray-700 hover:bg-gray-100 rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
+                <i class="fas fa-code"></i> ALL SC
+              </button><button onclick="filterKategori('SC PHISING', this)" class="btn-kategori border border-gray-200 text-gray-700 hover:bg-gray-100 rounded-full px-6 py-2 flex items-center gap-2 font-semibold">
+                <i class="fas fa-exclamation-triangle text-black"></i> 
+                <span>SC PHISING</span>
+              </button>  </nav>
+
+  <!-- PRODUK -->
+  <main class="bg-gray-50 py-12 px-6">
+    <h2 class="text-center text-2xl font-extrabold text-blue-600 mb-3">Produk Kami</h2>
+
+    <!-- Pencarian -->
+    <form class="max-w-xl mx-auto mb-10">
+      <label for="search" class="sr-only">Cari produk</label>
+      <div class="relative">
+        <input id="search" type="search" placeholder="Cari produk..." class="w-full rounded-full border border-gray-200 py-3 pl-12 pr-4 text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" />
+        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
       </div>
-      <div class="product-box">
-        <h3>💬 Bot Telegram RPG</h3>
-        <p>Bot game roleplay, leveling, AI assistant.</p>
-        <a href="https://wa.me/628xxxxxxx?text=Halo+saya+ingin+membeli+Bot+Telegram+RPG"><button class="button">Beli via WhatsApp</button></a>
-      </div>
-      <div class="product-box">
-        <h3>📱 Tools Termux</h3>
-        <p>Fake Hack, Bug WA, Delay Getar & Tools Prank.</p>
-        <a href="https://wa.me/628xxxxxxx?text=Halo+saya+ingin+membeli+Tools+Termux"><button class="button">Beli via WhatsApp</button></a>
-      </div>
-      <div class="product-box">
-        <h3>🌐 Website & API</h3>
-        <p>Portfolio, Musik App, Downloader, AI Tools.</p>
-        <a href="https://wa.me/628xxxxxxx?text=Halo+saya+ingin+membeli+Website+atau+API"><button class="button">Beli via WhatsApp</button></a>
-      </div>
+    </form>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" id="produk-list">
+      <div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
+  <div class="absolute top-0 right-0 bg-pink-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULER</div>
+  <h3 class="text-lg font-bold text-gray-800 mb-1">WHM MINI</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">20.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Akun Whm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
+  </ul>
+  <button onclick="redirectToPayment('WHM MINI', '20000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">WHM MEDIUM</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">30.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Akun Whm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
+  </ul>
+  <button onclick="redirectToPayment('WHM MEDIUM', '30000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">WHM EXTRA</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">40.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Akun Whm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
+  </ul>
+  <button onclick="redirectToPayment('WHM EXTRA', '40000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">WHM SUPER</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">50.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Akun Whm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
+  </ul>
+  <button onclick="redirectToPayment('WHM SUPER', '50000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
+  <div class="absolute top-0 right-0 bg-pink-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULER</div>
+  <h3 class="text-lg font-bold text-gray-800 mb-1">MWHM MINI</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">30.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Akun Mwhm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
+  </ul>
+  <button onclick="redirectToPayment('MWHM MINI', '30000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">MWHM MEDIUM</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">35.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Akun Mwhm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
+  </ul>
+  <button onclick="redirectToPayment('MWHM MEDIUM', '35000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">MWHM EXTRA</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">45.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Akun Mwhm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
+  </ul>
+  <button onclick="redirectToPayment('MWHM EXTRA', '45000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="relative produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">MWHM SUPER</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">55.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Akun Mwhm Dengan Fitur Dasar Untuk Kebutuhan Hosting.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Garansi Stabil</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Terjamin</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Support All Sc</li>
+  </ul>
+  <button onclick="redirectToPayment('MWHM SUPER', '55000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="WHM">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">MURHOST</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">50.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Anti Pt²</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Dapat All Sc Dari Gua</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain²</li>
+  </ul>
+  <button onclick="redirectToPayment('MURHOST', '50000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div><div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="SMTP">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">SMTP 1 MINGGU</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">70.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Garansi Sampai Habis Selama Pemakaian Insyaallah Hijau.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Di Jamin Hijau</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Tinggi</li>
+  </ul>
+  <button onclick="redirectToPayment('SMTP 1 MINGGU', '70000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="SMTP">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">SMTP 2 MINGGU</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">120.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Garansi Sampai Habis Selama Pemakaian Insyaallah Hijau.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Di Jamin Hijau</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Tinggi</li>
+  </ul>
+  <button onclick="redirectToPayment('SMTP 2 MINGGU', '120000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="SMTP">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">SMTP 3 MINGGU</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">150.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Garansi Sampai Habis Selama Pemakaian Insyaallah Hijau.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Di Jamin Hijau</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Tinggi</li>
+  </ul>
+  <button onclick="redirectToPayment('SMTP 3 MINGGU', '150000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="SMTP">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">SMTP 1 BULAN</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">170.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Garansi Sampai Habis Selama Pemakaian Insyaallah Hijau.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Di Jamin Hijau</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Keamanan Tinggi</li>
+  </ul>
+  <button onclick="redirectToPayment('SMTP 1 BULAN', '170000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">TANGAN KANAN</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">200.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Whm</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Founder Marga Dan Lain Lain</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain Lain Lah</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Ada Pt² Setiap Minggu</li>
+  </ul>
+  <button onclick="redirectToPayment('TANGAN KANAN', '200000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">JASTEB</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">10.000 - 100.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Insyaallah Dapat Akun Gg.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
+  </ul>
+  <button onclick="redirectToPayment('JASTEB', '10000 - 100000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">UNCHECK</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">10.000 - 100.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Insyaallah Dapat Akun Gg.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+  </ul>
+  <button onclick="redirectToPayment('UNCHECK', '10000 - 100000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">TEAM RESS</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">15.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Jasteb</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Pt Jasteb</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Ada PtPt Setiap Minggu</li>
+  </ul>
+  <button onclick="redirectToPayment('TEAM RESS', '15000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">ADMIN TEAM RESS</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">30.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Jasteb</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain²</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Tidak Ada PtPt</li>
+  </ul>
+  <button onclick="redirectToPayment('ADMIN TEAM RESS', '30000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">MARGA JASTEB</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">80.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Jasteb</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain²</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Ada Pt² Setiap Minggu</li>
+  </ul>
+  <button onclick="redirectToPayment('MARGA JASTEB', '80000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">FOUNDER MARGA JASTEB</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">150.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Jasteb</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain²</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Ada Pt² Setiap Minggu</li>
+  </ul>
+  <button onclick="redirectToPayment('FOUNDER MARGA JASTEB', '150000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="JASTEB">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">JASA PEMBUATAN RESS</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">80.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Insyaallah Balmond Jutaan Kalau Usaha.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Jasteb</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Jual Uncheck</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Open Lain²</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Tidak Ada PtPt</li>
+  </ul>
+  <button onclick="redirectToPayment('JASA PEMBUATAN RESS', '80000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="ALL SC">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">SC CREATE PANEL JASTEB 4 TAMPILAN</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">35.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Bisa Create Panel.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Panel Atur Menit</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Panel Atur Ress </li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Panel Biasa</li>
+  </ul>
+  <button onclick="redirectToPayment('SC PANEL JASTEB 4 TAMPILAN', '35000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="ALL SC">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">SC PUSAT</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">15.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Ada Login Nya Jadi Gak Kebobol.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Atur Background</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Atur Background Pusat</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Dan Lain²</li>
+  </ul>
+  <button onclick="redirectToPayment('SC PUSAT', '15000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="ALL SC">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">SC ALL PAYMENT</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">20.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Script Dengan Dukungan Semua Metode Pembayaran Populer Dan Integrasi Mudah.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Multi Payment</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Integrasi Mudah</li>
+  </ul>
+  <button onclick="redirectToPayment('SC ALL PAYMENT', '20000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+</div>
+
+<div class="produk-card bg-white rounded-2xl shadow-md p-6 border-t-4 border-[#6366f1]" data-kategori="ALL SC">
+  <h3 class="text-lg font-bold text-gray-800 mb-1">SC SUBDOMAIN</h3>
+  <p class="text-[#6366f1] font-bold text-xl mb-2">Rp <span class="text-2xl">25.000</span></p>
+  <p class="mb-6 text-sm text-gray-500">Script Untuk Manajemen Subdomain Pada Sistem Dengan Kontrol Penuh.</p>
+  <ul class="space-y-2 text-gray-900 font-medium mb-4 text-sm">
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Aktifkan Proxy</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Bisa Atur Background</li>
+    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-[#6366f1]"></i> Dan Lain²</li>
+  </ul>
+  <button onclick="redirectToPayment('SC SUBDOAMIN', '25000')" class="bg-gradient-to-r from-[#16a34a] to-[#6366f1] hover:opacity-90 text-white font-semibold px-4 py-2 rounded-full w-full transition">Pesan Sekarang</button>
+                             </div>
+                        </div>
+                   </div>
+              </div>
+       </section>
+<section id="contact">
+<footer>
+    <p>&copy; 2024 Store Jualan Yanzxz Official</p>
+    <div class="social-icons">
+        <!-- Icon Telegram -->
+        <a href="https://t.me/cssdmin_ynz" target="_blank" class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" width="50" height="50">
+        </a>
+        <!-- Icon YouTube -->
+        <a href="https://youtube.com/@yanzidhost" target="_blank" class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" width="50" height="50">
+        </a>
+        <!-- Icon WhatsApp -->
+        <a href="https://wa.me/6283155792072" target="_blank" class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="50" height="50">
+        </a>
     </div>
-  </section>
-
-  <footer>
-    © 2025 Ramzz Digital | Dibuat dengan 🔥 oleh RamzzHost
-  </footer>
-
-  <!-- SCRIPT -->
-  <script>
-    function showPage(id) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-
-    function toggleQRIS() {
-      const qris = document.getElementById("qris");
-      qris.style.display = qris.style.display === "block" ? "none" : "block";
-    }
-  </script>
+</footer>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+function redirectToPayment(namaProduk, harga) {
+            // Redirect ke halaman payment.html dengan parameter produk dan harga
+            window.location.href = `payment.html?produk=${encodeURIComponent(namaProduk)}&harga=${encodeURIComponent(harga)}`;
+        }
+        </script>
 </body>
 </html>
